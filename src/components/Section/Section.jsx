@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { SectionContainer, SectionTitle } from './Section.styled';
 
 class Section extends Component {
   render() {
