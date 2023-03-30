@@ -13,30 +13,30 @@ class Statistics extends Component {
     const { good, neutral, bad, total, percentage } = this.props;
 
     return (
-      <StatisticsContainer>
-        <StatisticsList>
-          <StatisticsItem>
-            <StatisticsLabel>Good:</StatisticsLabel>
-            <StatisticsCount>{good}</StatisticsCount>
-          </StatisticsItem>
-          <StatisticsItem>
-            <StatisticsLabel>Neutral:</StatisticsLabel>
-            <StatisticsCount>{neutral}</StatisticsCount>
-          </StatisticsItem>
-          <StatisticsItem>
-            <StatisticsLabel>Bad:</StatisticsLabel>
-            <StatisticsCount>{bad}</StatisticsCount>
-          </StatisticsItem>
-          <StatisticsItem>
-            <StatisticsLabel>Total:</StatisticsLabel>
-            <StatisticsCount>{total}</StatisticsCount>
-          </StatisticsItem>
-          <StatisticsItem>
-            <StatisticsLabel>Positive feedback:</StatisticsLabel>
-            <StatisticsPercentage>{percentage}%</StatisticsPercentage>
-          </StatisticsItem>
-        </StatisticsList>
-      </StatisticsContainer>
+      <div>
+        <ul>
+          <li>
+            <div>Good:</div>
+            <div>{good}</div>
+          </li>
+          <li>
+            <div>Neutral:</div>
+            <div>{neutral}</div>
+          </li>
+          <li>
+            <div>Bad:</div>
+            <div>{bad}</div>
+          </li>
+          <li>
+            <div>Total:</div>
+            <div>{total}</div>
+          </li>
+          <li>
+            <div>divositive feedback:</div>
+            <div>{divercentage}%</div>
+          </li>
+        </ul>
+      </div>
     );
   }
 }
