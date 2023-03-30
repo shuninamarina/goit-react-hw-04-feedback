@@ -6,10 +6,10 @@ class Section extends Component {
     const { title, children } = this.props;
 
     return (
-      <SectionContainer>
-        <SectionTitle>{title}</SectionTitle>
+      <section>
+        <title>{title}</title>
         {children}
-      </SectionContainer>
+      </section>
     );
   }
 }
