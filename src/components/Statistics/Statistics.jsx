@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  StatisticsContainer,
-  StatisticsList,
-  StatisticsItem,
-  StatisticsLabel,
-  StatisticsPercentage,
-  StatisticsCount,
-} from './Statistics.styled';
+
 class Statistics extends Component {
   render() {
     const { good, neutral, bad, total, percentage } = this.props;
