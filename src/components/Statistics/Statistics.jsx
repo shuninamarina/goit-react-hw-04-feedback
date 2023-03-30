@@ -25,8 +25,8 @@ class Statistics extends Component {
             <div>{total}</div>
           </li>
           <li>
-            <div>divositive feedback:</div>
-            <div>{divercentage}%</div>
+            <div>Positive feedback:</div>
+            <div>{percentage}%</div>
           </li>
         </ul>
       </div>
