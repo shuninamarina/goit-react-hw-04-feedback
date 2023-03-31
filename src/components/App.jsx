@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Section from './Section/Section';
-import Statistics from './Statistics/Statistics';
-import Notification from './Notification/Notification';
+import { useState } from 'react';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Statistics } from './Statistics/Statistics';
+import { Section } from './Section/Section';
 
 export const App = () => {
   const [state, setState] = useState({ good: 0, neutral: 0, bad: 0 });
@@ -15,46 +14,37 @@ export const App = () => {
   };
 
   const countTotalFeedback = () => {
-    const { good, neutral, bad } = state;
-    return good + neutral + bad;
+    return Object.values(state).reduce((acc, value) => acc + value, 0);
   };
 
-  const countPositiveFeedbackPercentage = () => {
-    const { good } = state;
-    const total = countTotalFeedback();
-    return total === 0 ? 0 : Math.round((good / total) * 100);
+  const countPositiveFeedback = () => {
+    return Math.round(state.good * 100) / countTotalFeedback();
   };
 
-  const { good, neutral, bad } = state;
-  const totalFeedback = countTotalFeedback();
-  const positiveFeedbackPercentage = countPositiveFeedbackPercentage();
+  const total = countTotalFeedback();
+  const positivePercentage = countPositiveFeedback().toFixed(2);
 
   return (
-    <div>
-      <Section title={'Please leave feedback'}>
+    <>
+      <Section title="Please leave feedback">
         <FeedbackOptions
-          options={['good', 'neutral', 'bad']}
+          options={Object.keys(state)}
           onLeaveFeedback={onLeaveFeedback}
         />
       </Section>
-
-      {totalFeedback === 0 ? (
-        <Notification message="There is no feedback" />
-      ) : (
-        <Section title="Statistics">
+      <Section title="Statistics">
+        {total > 0 ? (
           <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={totalFeedback}
-            percentage={positiveFeedbackPercentage}
+            good={state.good}
+            neutral={state.neutral}
+            bad={state.bad}
+            total={total}
+            positivePercentage={positivePercentage}
           />
-        </Section>
-      )}
-    </div>
+        ) : (
+          <p>there is no feedback</p>
+        )}
+      </Section>
+    </>
   );
-};
-
-App.propTypes = {
-  children: PropTypes.node,
 };

@@ -1,21 +1,3 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
-class Section extends Component {
-  render() {
-    const { title, children } = this.props;
-
-    return (
-      <section>
-        <title>{title}</title>
-        {children}
-      </section>
-    );
-  }
+export const Section = ({title, children}) => {
+    return <section>{title && <h2>{title}</h2>} { children }</section>
 }
-
-Section.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
-export default Section;
